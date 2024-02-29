@@ -1,0 +1,276 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'backendtheme/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'backendtheme/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'backendtheme/assets/libs/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'backendtheme/assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+         <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="../index.html">NITH CLOTHING</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
+
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                              </li>
+                              <li class="nav-item ">
+                                <a class="nav-link active" href="adminhome"  data-target="#submenu-1" aria-controls="submenu-1">Dashboard <span class="badge badge-success">6</span></a> 
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="adminproduct"  data-target="#submenu-1" aria-controls="submenu-1">Products <span class="badge badge-success">6</span></a> 
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="adminquantitysize"  data-target="#submenu-1" aria-controls="submenu-1">Quantity & Size <span class="badge badge-success">6</span></a> 
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="insertproduct"  data-target="#submenu-1" aria-controls="submenu-1">Insert Product<span class="badge badge-success">6</span></a> 
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="admindrop"  data-target="#submenu-1" aria-controls="submenu-1">Drop<span class="badge badge-success">6</span></a> 
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 style="margin: 0px 0px 0px 0px;">Edit Product</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    {% load widget_tweaks %}
+                                    <div class="form-group">
+                                        <label for="productname">Product Name:</label>
+                                        {% render_field productform.ProductName class="form-control" name='productname' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cat">Categories:</label>
+                                        {% render_field productform.Catgories class="form-control" name='cat' %}
+                                        <p>Available Categories: Top,Crop Top,Crop Shirt,Shirt,Tshirt,Crop Tshirt,Tank Top,Chiffon Top,Dress,Sweater,Cardigan,Hoodie,SweatShirt,Pre Winter,Denim Jacket,Puffer Jacket,Trench Coat,Hoodie,Shacket,Jeans,Trouser,Cargo,Shorts,Skirt    </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price:</label>
+                                        {% render_field productform.Price class="form-control" name="price" %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tos">Type:</label>
+                                        {% render_field productform.TypeOfStock class="form-control" name="price" %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BustOrWaist">B/W:</label>
+                                        {% render_field productform.BustOrWaist class="form-control" name='BustOrWaist' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Condition">Condition:</label>
+                                        {% render_field productform.Condition class="form-control" name='Condition' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="details">Details:</label>
+                                        {% render_field productform.Details class="form-control" name="details" %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image1">Image1:</label>
+                                        {% render_field productform.Image1 class="form-control" name='Image1' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image2">Image2:</label>
+                                        {% render_field productform.Image2 class="form-control" name='Image2' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image3">Image3:</label>
+                                        {% render_field productform.Image3 class="form-control" name='Image3' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image4">Image4:</label>
+                                        {% render_field productform.Image4 class="form-control" name='Image4' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Image5">Image5:</label>
+                                        {% render_field productform.Image5 class="form-control" name='Image5' %}
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="Image5">FreeSize:</label>
+                                        {% render_field productform.FreeSize name='FreeSize' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size22">Size 22:</label>
+                                        {% render_field productform.Size22 name='Size22' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size23">Size 23:</label>
+                                        {% render_field productform.Size23 name='Size23' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size24">Size 24:</label>
+                                        {% render_field productform.Size24 name='Size24' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size25">Size 25:</label>
+                                        {% render_field productform.Size25 name='Size25' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size26">Size 26:</label>
+                                        {% render_field productform.Size26 name='Size26' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size27">Size 27:</label>
+                                        {% render_field productform.Size27 name='Size27' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size28">Size 28:</label>
+                                        {% render_field productform.Size28 name='Size28' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size29">Size 29:</label>
+                                        {% render_field productform.Size29 name='Size29' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size30">Size 30:</label>
+                                        {% render_field productform.Size30 name='Size30' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size31">Size 31:</label>
+                                        {% render_field productform.Size31 name='Size31' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size32">Size 32:</label>
+                                        {% render_field productform.Size32 name='Size32' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size33">Size 33:</label>
+                                        {% render_field productform.Size33 name='Size33' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size34">Size 34:</label>
+                                        {% render_field productform.Size34 name='Size34' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size35">Size 35:</label>
+                                        {% render_field productform.Size35 name='Size35' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size36">Size 36:</label>
+                                        {% render_field productform.Size36 name='Size36' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size37">Size 37:</label>
+                                        {% render_field productform.Size37 name='Size37' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size25">Size 38:</label>
+                                        {% render_field productform.Size38 name='Size38' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size39">Size 39:</label>
+                                        {% render_field productform.Size39 name='Size39' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size40">Size 40:</label>
+                                        {% render_field productform.Size40 name='Size40' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size41">Size 41:</label>
+                                        {% render_field productform.Size41 name='Size41' %}
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Size42">Size 42:</label>
+                                        {% render_field productform.Size42 name='Size42' %}
+                                    </div>
+                                    
+
+                                    <div class="form-group">
+                                        <input type="submit" name="Submit" value="Apply Changes" class="btn-primary-link form-control look-btn" >
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="{% static 'backendtheme/assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'backendtheme/assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'backendtheme/assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'backendtheme/assets/libs/js/main-js.js' %}"></script>
+</body>
+ 
+</html>

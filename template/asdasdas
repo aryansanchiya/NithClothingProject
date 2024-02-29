@@ -1,0 +1,168 @@
+ <div class="form-group">
+                                        <label for="name">Product Name:</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Title">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="categories">Product Categories:</label>
+                                        <select name="categories" class="form-control">
+                                            <option value="topwear">Top</option>
+                                            <option value="croptops">Crop Top</option>
+                                            <option value="cropshirts">Crop Shirt</option>
+                                            <option value="shirts">Shirt</option>
+                                            <option value="tshirts">Tshirt</option>
+                                            <option value="croptshirts">Crop Tshirt</option>
+                                            <option value="tanktops">Tank Top</option>
+                                            <option value="chiffontops">Chiffon Top</option>
+                                            <option value="dresses">Dress</option>
+                                            <!--winterwear -->
+                                            <option value="sweaters">Sweater</option>
+                                            <option value="cardigan">Cardigan</option>
+                                            <option value="hoodies">Hoodie</option>
+                                            <option value="sweatshirts">SweatShirt</option>
+                                            <option value="prewinter">Pre Winter</option>
+                                            <option value="denimjackets">Denim Jackets</option>
+                                            <option value="pufferjackets">Puffer Jacket</option>
+                                            <option value="trenchcoat">Trench Coat</option>
+                                            <option value="hoodies">Hoodie</option>
+                                            <option value="shacket">Shacket</option>
+                                            <!--Bottom Wear-->
+                                            <option value="jeans">Jeans</option>
+                                            <option value="trousers">Trouser</option>
+                                            <option value="cargos">Cargo</option>
+                                            <option value="shorts">Shorts</option>
+                                            <option value="skirts">Skirt</option>      
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h3>Enter Bust or Waist</h3>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bustwaist">Bust Or Waist: </label>
+                                        <input type="text" id="bustwaist" name="bustwaist" placeholder="bust or waist" >
+                                    </div>
+                    
+                                    <div class="form-group">
+                                        <label for="condition"> Condtion :</label>
+                                        <input type="number" class="form-control" name="condition">
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h3>Images</h3>
+                                        <label for="img1"> Image 1 :</label>
+                                        <input type="file" name="img1" id="free size" value="Insert Image" >
+                                        <br>
+                                        <label for="img2"> Image 2 :</label>
+                                        <input type="file"  name="img2" id="free size" value="Insert Image">
+                                        <br>
+                                        <label for="img3"> Image 3 :</label>
+                                        <input type="file"  name="img3" id="free size" value="Insert Image">
+                                        <br>
+                                        <label for="img4"> Image 4 :</label>
+                                        <input type="file"  name="img4" id="free size" value="Insert Image">
+                                        <br>
+                                        <label for="img5"> Image 5 :</label>
+                                        <input type="file" name="img5" id="free size" value="Insert Image">
+                                    </div>
+                                    <hr>
+                                    <br>
+                                    <div class="form-group">
+                                        <h3>Sizes & Quantity</h3>
+                                        <label for="free size"> Free Size :</label>
+                                        <input type="number" class="form-control" name="free size" id="free size">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="22"> 22 :</label>
+                                        <input type="number" name="22" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="23"> 23 :</label>
+                                        <input type="number" name="23" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="24"> 24 :</label>
+                                        <input type="number" name="24" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="25"> 25 :</label>
+                                        <input type="number" name="25" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="26"> 26 :</label>
+                                        <input type="number" name="26" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="27"> 27 :</label>
+                                        <input type="number" name="27" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="28"> 28 :</label>
+                                        <input type="number" name="28" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="29"> 29 :</label>
+                                        <input type="number" name="29" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="30"> 30 :</label>
+                                        <input type="number" name="30" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="31"> 31 :</label>
+                                        <input type="number" name="31" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="32"> 32 :</label>
+                                        <input type="number" name="32" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="33"> 33 :</label>
+                                        <input type="number" name="33" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="34"> 34 :</label>
+                                        <input type="number" name="34" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="35"> 35 :</label>
+                                        <input type="number" name="35" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="36"> 36 :</label>
+                                        <input type="number" name="36" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="37"> 37 :</label>
+                                        <input type="number" name="37" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="38"> 38 :</label>
+                                        <input type="number" name="38" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="39"> 39 :</label>
+                                        <input type="number" name="39" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="40"> 40 :</label>
+                                        <input type="number" name="40" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="41"> 41 :</label>
+                                        <input type="number" name="41" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="42"> 42 :</label>
+                                        <input type="number" name="42" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="43"> 43 :</label>
+                                        <input type="number" name="43" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="44"> 44 :</label>
+                                        <input type="number" name="44" value="0">
+                                    </div>
