@@ -41,7 +41,7 @@
                     <a href="./index.html"><img src="{% static 'theme/img/nithclothing3.png' %}" alt=""></a>
                 </div>
                 <div class="header-right">
-                    <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger">
+                    <!-- <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger"> -->
                     <img src="{% static 'theme/img/icons/man.png' %}" alt="">
                     <a href="/cart">
                         <img src="{% static 'theme/img/icons/bag.png' %}" alt="">
@@ -123,6 +123,21 @@
                                 <img src="/{{ pro_id.Image1 }}" alt="">
                             </figure>
                         </div>
+                        <div class="product-img">
+                            <figure>
+                                <img src="/{{ pro_id.Image1 }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="product-img">
+                            <figure>
+                                <img src="/{{ pro_id.Image1 }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="product-img">
+                            <figure>
+                                <img src="/{{ pro_id.Image1 }}" alt="">
+                            </figure>
+                        </div>
                     </div>
                     
                 </div>
@@ -138,11 +153,11 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div> -->
+                            <h6>{{ pro_id.Details }}</h6>
                         </div>
-                        <h6>{{ pro_id.Details }}</h6>
                         <ul class="tags">
                             <li><span>Category :</span> {{ pro_id.Catgories }}</li>
-                            <li><span>Condition Rate:</span> {{ pro_id.Condition }}</li>
+                            <li><span>Condition Rate:</span> {{ pro_id.Condition }} Out of 10</li>
                             <li><span>Sizes Available:</span>
                                 <select class="product_size">
                                     {% if pro_id.Size22 > 0 %}<option value="Size22" >Size22</option>{% endif %}

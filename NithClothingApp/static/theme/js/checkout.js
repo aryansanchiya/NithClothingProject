@@ -11,6 +11,7 @@ $(document).ready(function(response){
         var country = $("[name='country']").val();
         var code = $("[name='code']").val();
         var phone = $("[name='phone']").val();
+        // var size = $("[name='size']").val();
         var token = $("[name='csrfmiddlewaretoken']").val();
         if(firstname == "" || lastname == "" || address == "" || city == "" || state == "" || country == "" || code == "" || phone == ""){
             // swal("Alert!","All fields are mandatory", "error");
@@ -52,8 +53,8 @@ $(document).ready(function(response){
                                 'phone': phone,
                                 'payment_id': responseb.razorpay_payment_id,
                                 'csrfmiddlewaretoken': token,
-                                } ,
-                                success: function (responseb) {
+                            } ,
+                            success: function (responseb) {
                                     window.location.href = '/home'
                                 } 
                             });

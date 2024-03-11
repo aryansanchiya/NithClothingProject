@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     #Frontend
-    path('home',views.home,name='home'),
+    path('',views.home,name='home'),
     path('product/<int:productid>',views.product,name='product'),
     path('categories',views.categories,name='categories'),
     path('cart',views.cart,name='cart'),
@@ -17,6 +17,8 @@ urlpatterns = [
     path("dropproducts/<int:dropnum>/<str:dropname>",views.dropproducts,name="admindrop"),
     path('register',views.register,name='register'),
     path('login',views.login,name='login'),
+    path('forgot_password',views.forgot_password,name='forgot_password'),
+    path('change_password',views.change_password,name='change_password'),
     path('userlogout',views.userlogout,name="userlogout"),
     path('logout_page',views.logout_page,name='user_logout'),
 
@@ -36,4 +38,5 @@ urlpatterns = [
     path("admindrop",views.admindrop,name="admindrop"),
     path('editdrop/<int:dropid>',views.editdrop,name='editdrop'),
     path('deletedrop/<int:dropid>',views.deletedrop,name='deletedrop'),
+    path('orderitems',views.orderitems,name='orderitems'),
 ]

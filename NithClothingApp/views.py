@@ -12,16 +12,31 @@ from django.contrib import messages
 from django.db.models import Sum
 from dateutil.relativedelta import relativedelta
 from django.db.models import Count
+import string
+import random
+from email import message
+import email
+from django.core.mail import send_mail
+from django.conf import settings
 # from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 
 #other function
+def send_text_email(subject, message, receiver_email_list):
+    sender_email = settings.EMAIL_HOST_USER
+    send_mail(subject, message, sender_email, receiver_email_list)
+
 def last_day_of_month(date):
     return date.replace(day=1) + relativedelta(months=1) - relativedelta(days=1)
 
-# Frontend Functions.
+def generate_random_password(length=16):
+    letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    random_password = ''
+    for i in range(length):
+        random_password = random_password  + random.choice(letters)
+    return random_password
 
-
+# Frontend Functions
 def home(request):   
     try: 
         name =request.session['name']
@@ -54,7 +69,6 @@ def placeorder(request):
         return redirect('login')
 
     if request.method == 'POST':
-        print("hii")
         neworder = Order()
         neworder.user_id = request.session['userid']
         neworder.fname = request.POST.get('firstname')
@@ -84,7 +98,8 @@ def placeorder(request):
                 order=neworder,
                 product=item.product,
                 price=item.product.Price,
-                quantity=item.quantity 
+                quantity=item.quantity,
+                size = item.productsize
             )
 
             #Decrease the quantity from order stocks:
@@ -222,6 +237,43 @@ def login(request):
         else:
             return render(request,"login.html")
     return render(request,"login.html")
+
+def forgot_password(request):
+    if request.method == 'POST':
+        txtemail = request.POST['email']
+        count = User.objects.filter(Emailid=txtemail).count()
+        if count == 0:
+            return render(request,"forgot_password.html",{'message':"Email is not registerd with us!"})
+        else:
+            new_password = generate_random_password(7)
+
+            user = User.objects.get(Emailid=txtemail)
+            user.Password = make_password(new_password)
+            user.save()
+
+            subject = "Congratulations, We have recovered your Account!"
+            message = f"Your new password is {new_password}"
+            recipient_list = [txtemail]
+            send_text_email(subject,message,recipient_list)
+            return redirect("change_password")
+    return render(request,"forgot_password.html")
+        
+def change_password(request):
+    if request.method == "POST":
+        txtemail = request.POST['email']
+        current_password = request.POST['currentpassword']
+        new_password = request.POST['password']
+        count = User.objects.filter(Emailid = txtemail).count()
+        if count == 0:
+            return render(request,"change_password.html",{"message":"Database do not contain this password."})
+        else:
+            new_password = make_password(new_password)
+            user = User.objects.get(Emailid=txtemail)
+            user.Password = new_password
+            user.ConfirmPassword = new_password
+            user.save()
+            return redirect('login')
+    return render(request,'change_password.html')
 
 def userlogout(request):
     if not 'userid' in request.session:
@@ -415,3 +467,7 @@ def dropproducts(request,dropnum,dropname):
     products = Products.objects.all()
     todaysdate = datetime.date.today()
     return render(request, "drop-products.html",{'drop_num':drop_num,'drop_name':drop_name,'products':products})
+
+def orderitems(request):
+    orderitems = OrderItem.objects.all()
+    return render(request,"backend-orderitems.html",{'orderitems':orderitems})

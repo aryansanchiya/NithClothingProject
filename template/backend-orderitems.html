@@ -72,10 +72,6 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="admindrop"  data-target="#submenu-1" aria-controls="submenu-1">Drop<span class="badge badge-success">6</span></a> 
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link active" href="orderitems"  data-target="#submenu-1" aria-controls="submenu-1">Order Items<span class="badge badge-success">6</span></a> 
-                            </li>
-
 
                         </ul>
                     </div>
@@ -97,13 +93,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Home </h2>
+                                <h2 class="pageheader-title">Total Orders </h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page"></li>
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Table</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Orders</li>
                                             
                                         </ol>
                                     </nav>
@@ -116,67 +112,7 @@
                     <!-- ============================================================== -->
                     <div class="ecommerce-widget">
 
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Total Revenue</h5>
-                                            <h1 class="mb-1">{{ total_revenue }}</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Total New User</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ usercount  }}</h1>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Total Items in Cart</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ cartitems }}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Total Orders</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ total_order }}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">City</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ most_orders_city }}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Orders from </h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ most_orders_count }}</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
+                       
                         <div class="row">
                             <!-- ============================================================== -->
                       
@@ -186,45 +122,43 @@
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">Recent Orders</h5>
+                                    <h5 class="card-header">Order Item</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">
                                                        
-                                                        <th class="border-0">{{row.id}}</th>
-                                                        <th class="border-0">Image</th>
-                                                        <th class="border-0">Product Name</th>
-                                                        <th class="border-0">Payment Id</th>
-                                                        <th class="border-0">Quantity</th>
+                                                        <!-- <th class="border-0"></th> -->
+                                                        <th class="border-0">Order Id</th>
+                                                        <th class="border-0">Product Id</th>
                                                         <th class="border-0">Price</th>
-                                                        <th class="border-0">Order Time</th>
-                                                        <th class="border-0">Customer</th>
-                                                        <!-- <th class="border-0">Update</th> -->
+                                                        <th class="border-0">Quantity</th>
+                                                        <th class="border-0">Size</th>
+                                                        <th class="border-0">Tracking No</th>
+                                                        <th class="border-0">Tracking Link</th>
+                                                        <th class="border-0">Update</th>
+                                                        <th class="border-0">Delete</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {% for row in orderitems %}
                                                     <tr>
-                                                        {% for row in orderitem %}
                                                         
-                                                        <td>{{ row.id }}</td>
-                                                        <td>
-                                                            <div class="m-r-10"><img src="{{ row.product.Image1 }}" alt="user" class="rounded" width="45"></div>
-                                                        </td>
-                                                        <td>{{ row.product.ProductName }}</td>
-                                                        <td>{{ row.order.payment_id }}</td>
+                                                       
+                                                        <td>{{ row.order.id }}</td>
+                                                        <td>{{ row.product.id }}</td>
+                                                        <td>{{ row.price }}</td>
                                                         <td>{{ row.quantity }}</td>
-                                                        <td>{{ row.order.totalprice }}</td>
-                                                        <td>{{ row.order.created_at }}</td>
-                                                        <td>{{ row.order.fname }} {{ row.order.lname }}</td>
-                                                        <!-- <td><a href="updatetrackingdetails/"><i class="fa fa-edit"></i></a></td> -->
+                                                        <td>{{ row.size }}</td>
+                                                        <!-- <td></td>
+                                                        <td></td> -->
+    
+                                                        <!-- <td><a href="updatetrackingdetails/{{ row.id }}"><i class="fa fa-edit"></i></a></td> -->
                                                     </tr>
                                     
                                                     {% endfor %}
-                                                    <tr>
-                                                        <td colspan="9"><a href="/adminorder" class="btn btn-outline-light float-right">View more</a></td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -245,6 +179,8 @@
                             <!-- end category revenue  -->
                             <!-- ============================================================== -->
 
+                            <!-- sales traffic country source  -->
+                            <!-- ============================================================== -->
                         </div>
                     </div>
                 </div>

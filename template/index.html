@@ -52,6 +52,7 @@
                 <div class="logo col-lg-2 col-md-4 col-sm-12" >
                     <a href="./index.html"><img src="{% static 'theme/img/nithclothing3.png' %}" alt=""></a>
                 </div>
+                {% if name %}
                 <div class="header-right">
                     <!-- <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger"> -->
                     <img src="{% static 'theme/img/icons/man.png' %}" alt="">
@@ -60,6 +61,7 @@
                         <!-- <span>2</span> -->
                     </a>
                 </div>
+                {% endif %}
                 <div class="user-access">
                     {% if name %}
                      <a href>{{ name }}</a>
@@ -177,28 +179,7 @@
         </div>
     </section>
     <!-- Lookbok Section End -->
-
-    <!-- Logo Section Begin -->
-    <div class="logo-section spad">
-        <div class="logo-items owl-carousel">
-            <div class="logo-item">
-                <img src="{% static 'theme/img/logos/logo-1.png' %}" alt="">
-            </div>
-            <div class="logo-item">
-                <img src="{% static 'theme/img/logos/logo-2.png' %}" alt="">
-            </div>
-            <div class="logo-item">
-                <img src="{% static 'theme/img/logos/logo-3.png' %}" alt="">
-            </div>
-            <div class="logo-item">
-                <img src="{% static 'theme/img/logos/logo-4.png' %}" alt="">
-            </div>
-            <div class="logo-item">
-                <img src="{% static 'theme/img/logos/logo-5.png' %}" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- Logo Section End -->
+    <hr>
 
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">

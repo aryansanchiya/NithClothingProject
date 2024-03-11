@@ -114,6 +114,7 @@ class Order(models.Model):
     country = models.CharField(max_length = 255)
     zipcode = models.CharField(max_length = 255)
     phone = models.CharField(max_length = 255)
+    # size = models.CharField(max_length = 255, null=False)
     totalprice = models.FloatField()
     # payment_mode = models.CharField(max_length=255)
     payment_id = models.CharField(max_length=255,null=True)
@@ -137,6 +138,7 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Products, on_delete = models.CASCADE)
     price = models.FloatField()
     quantity = models.IntegerField()
+    size = models.CharField(max_length=255)
 
     def __str__(self):
         return '{} - {}'.format(self.order.id, self.order.trackingno)
