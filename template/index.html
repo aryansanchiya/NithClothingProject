@@ -26,6 +26,13 @@
     <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'theme/css/style2.css' %}" type="text/css">
+    <style>
+        figure{
+            height: 20%;
+            width: 100%;
+            align-items: center
+        };
+    </style>
 </head>
 
 <body>
@@ -50,12 +57,14 @@
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo col-lg-2 col-md-4 col-sm-12" >
-                    <a href="./index.html"><img src="{% static 'theme/img/nithclothing3.png' %}" alt=""></a>
+                    <img src="{% static 'theme/img/nithclothing3.png' %}" alt="">
                 </div>
                 {% if name %}
                 <div class="header-right">
                     <!-- <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger"> -->
-                    <img src="{% static 'theme/img/icons/man.png' %}" alt="">
+                    <a href="myorders">
+                        <img src="{% static 'theme/img/icons/man.png' %}" alt="">
+                    </a>
                     <a href="cart">
                         <img src="{% static 'theme/img/icons/bag.png' %}" alt="">
                         <!-- <span>2</span> -->
@@ -74,9 +83,9 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a class="active" href="home">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a class="active" href="/">Home</a></li>
+                        <li><a href="aboutus">About</a></li>
+                        <li><a href="contacus">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -131,20 +140,22 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="product-list">
+            <div class="row" id="">
                 {% for row in table %}
+                {% if row.TypeOfStock == 'General' or row.TypeOfStock == 'Special' or row.TypeOfStock == 'Sale' %}
                 <div class="col-lg-3 col-sm-6 mix all dresses bags">
                     <div class="single-product-item">
                         <figure>
                             <a href="product/{{ row.id }}"><img src="{{ row.Image1 }}" alt=""></a>
-                            <div class="p-status">{{row.Catgories}}</div>
+                          {% if row.TypeOfStock == 'Special' or row.TypeOfStock == 'Sale' %}  <div class="p-status">{{row.TypeOfStock}}</div> {% endif %}
                         </figure>
                         <div class="product-text">
-                            <h6>{{ row.ProductName }}</h6>
-                            <h6>{{ row.Price }} Rs</h6>
+                            <b><h6>{{ row.ProductName }}</h6></b>
+                            <b><h6>{{ row.Price }} Rs</h6></b>
                         </div>
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -159,27 +170,20 @@
                     <div class="lookbok-left">
                         <div class="section-title">
                             <h2>About <br />#us</h2>
-                        <!-- </div>
-                        <p>Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vestibulum malesuada
-                            aliquet libero viverra cursus. Aliquam erat volutpat. Morbi id dictum quam, ut commodo
-                            lorem. In at nisi nec arcu porttitor aliquet vitae at dui. Sed sollicitudin nulla non leo
-                            viverra scelerisque. Phasellus facilisis lobortis metus, sit amet viverra lectus finibus ac.
-                            Aenean non felis dapibus, placerat libero auctor, ornare ante. Morbi quis ex eleifend,
-                            sodales nulla vitae, scelerisque ante. Nunc id vulputate dui. Suspendisse consectetur rutrum
-                            metus nec scelerisque.</p> -->
-                        <a href="#" class="primary-btn look-btn">See More</a>
+                            <br>
+                        <a href="aboutus" class="primary-btn look-btn">See More</a>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="lookbok-pic">
+                    <!-- <div class="lookbok-pic">
                         <img src="{% static 'theme/img/nithclothing2.png' %}" alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
     <!-- Lookbok Section End -->
-    <hr>
+
 
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
@@ -207,18 +211,11 @@
                             </ul>
                         </div>
                     </div> -->
-                    <!-- <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-12 col-sm-6">
                         <div class="single-footer-widget">
-                            <h4>Information</h4>
-                            <ul>
-                                <li>Payment methods</li>
-                                <li>Times and shipping costs</li>
-                                <li>Product Returns</li>
-                                <li>Shipping methods</li>
-                                <li>Conformity of the products</li>
-                            </ul>
+                           
                         </div>
-                    </div> -->
+                    </div> 
                 </div>
             </div>
         </div>
@@ -227,9 +224,7 @@
 				<div class="social-links">
 					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
 					<!-- <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a> -->
-					<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-					<!-- <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a> -->
+					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
 					<!-- <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a> -->
 				</div>
 			</div>

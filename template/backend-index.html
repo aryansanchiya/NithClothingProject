@@ -27,24 +27,9 @@
         <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">NITH CLOTHING</a>
-                <!-- <li class="nav-item dropdown nav-user"> -->
-                    <!-- <a class="nav-link nav-user-img" href="#" id="navbarDropdow>Account</a> -->
-                        <a class="dropdown-item" href="logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                <!-- </li> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-        </div>
+
         <!-- ============================================================== -->
         <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
@@ -56,7 +41,7 @@
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">
                                 Menu
-                              </li>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="adminhome"  data-target="#submenu-1" aria-controls="submenu-1">Dashboard <span class="badge badge-success">6</span></a> 
                             </li>
@@ -72,25 +57,16 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="admindrop"  data-target="#submenu-1" aria-controls="submenu-1">Drop<span class="badge badge-success">6</span></a> 
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link active" href="orderitems"  data-target="#submenu-1" aria-controls="submenu-1">Order Items<span class="badge badge-success">6</span></a> 
-                            </li>
-
-
+                            
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
+       
+        <div class="dashboard-wrapper"> 
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="container-fluid  ">
                     <!-- ============================================================== -->
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
@@ -102,6 +78,7 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
+                                            <a class="breadcrumb-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                             <li class="breadcrumb-item active" aria-current="page"></li>
                                             
@@ -201,6 +178,8 @@
                                                         <th class="border-0">Price</th>
                                                         <th class="border-0">Order Time</th>
                                                         <th class="border-0">Customer</th>
+                                                        <th class="border-0">Tracking No</th>
+                                                        <th class="border-0">Tracking Link</th>
                                                         <!-- <th class="border-0">Update</th> -->
                                                     </tr>
                                                 </thead>
@@ -218,6 +197,8 @@
                                                         <td>{{ row.order.totalprice }}</td>
                                                         <td>{{ row.order.created_at }}</td>
                                                         <td>{{ row.order.fname }} {{ row.order.lname }}</td>
+                                                        <td>{{ row.order.trackingno }}</td>
+                                                        <td>{{ row.order.trackinglink }}</td>
                                                         <!-- <td><a href="updatetrackingdetails/"><i class="fa fa-edit"></i></a></td> -->
                                                     </tr>
                                     

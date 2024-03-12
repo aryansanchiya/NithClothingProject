@@ -109,18 +109,18 @@ def placeorder(request):
         Cart.objects.filter(user=request.session['userid']).delete()
         messages.success(request, "Your order is placed!")
 
-    return redirect("home")
+    return redirect("/")
 
 def checkout(request):
     if not 'userid' in request.session:
         return redirect('login')
-    
+    name =request.session['name']
     cartitems = Cart.objects.filter(user_id = request.session['userid'])
     total_price = 0
     for item in cartitems:
         total_price = total_price + item.product.Price * item.quantity
 
-    return render(request, 'check-out.html',{'cartitems':cartitems,'total_price': total_price})
+    return render(request, 'check-out.html',{'cartitems':cartitems,'total_price': total_price,'name':name})
 
 def addtocart(request):
     if not 'userid' in request.session:
@@ -143,7 +143,7 @@ def addtocart(request):
                 return JsonResponse({'status': "Product already added!  "})
             else:
                 prod_qty = int(request.POST.get('product_qty'))
-                if prod_qty < prod_size_quant_final_val:
+                if prod_qty <= prod_size_quant_final_val:
                     # print("hello")
                     Cart.objects.create(user_id=userid, product_id = prod_id, quantity= prod_qty,productsize=prod_size)
                     return JsonResponse({'status': "Product added successfully!"})
@@ -174,21 +174,25 @@ def cart(request):
     return render(request, 'shopping-cart.html',{'cart':cart , 'name': name})
 
 def dlt_cart_item(request):
-    if request.method == 'POST':
-        prod_id = int(request.POST.get('product_id'))
-        cartitem = Cart.objects.get(product_id = prod_id, user= request.session['userid'])
-        print(cartitem)
-        cartitem.delete()
-    return render(request,"shopping-cart.html")
+        if not 'userid' in request.session:
+            return redirect('login')
+        user_id = request.session['userid']
+        # print(user_id)
+        cart_items = Cart.objects.filter(user=user_id).count()
+        print(cart_items)
+        if cart_items > 0:
+            cart_item = Cart.objects.filter(user=user_id).delete()
+            return redirect("cart")
+        return render(request,"shopping-cart.html")
 
 def myorders(request):
     if not 'userid' in request.session:
         return redirect('login')
+    user_id = request.session['userid']
     name = request.session['name']
-    orders = Order.objects.filter(user=request.session['userid'])
-    trackingdetails = TrackingDetails.objects.values_list()
-    # print(trackingdetails)
-    return render(request,"user.html",{'orders':orders,'name':name,'trackingdetails':trackingdetails})
+    table = OrderItem.objects.filter(order__user__id=user_id)
+    # print(order_item)
+    return render(request,"user.html",{ 'table': table,'name':name})
 
 def register(request):
     form = UserRegisterForm
@@ -421,11 +425,6 @@ def adminorder(request):
     return render(request,"adminorder.html",{'orderitem':orderitem})
 
 
-def updatetrackingdetails(request,orderid):
-    tracking_form = AdminTrackingDetails
-    orders = Order.objects.all()
-    return render(request,"update-tracking-details.html",{'orders':orders})
-
 def insertadmindrop(request):
     drop_form = DropForm
     if request.method == "POST":
@@ -471,3 +470,25 @@ def dropproducts(request,dropnum,dropname):
 def orderitems(request):
     orderitems = OrderItem.objects.all()
     return render(request,"backend-orderitems.html",{'orderitems':orderitems})
+
+def usertable(request):
+    table = User.objects.all()
+    return render(request,'backend-usertable.html',{'table':table})
+
+def updatetrackingdetails(request):
+    if request.method == 'POST':
+        orderid = request.POST['orederid']
+        tno = request.POST['tno']
+        tlink = request.POST['tlink']
+
+        count = Order.objects.filter(id=orderid).count()
+
+        if count == 0:
+            return render(request,'update-tracking-details.html',{'message':'This order id does not exist in Database.'})
+        else:
+            order = Order.objects.get(id=orderid)
+            order.trackingno = tno
+            order.trackinglink = tlink
+            order.save()
+            return redirect(adminhome)
+    return render(request,'update-tracking-details.html')

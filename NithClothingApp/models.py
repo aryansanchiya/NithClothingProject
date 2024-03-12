@@ -139,12 +139,15 @@ class OrderItem(models.Model):
     price = models.FloatField()
     quantity = models.IntegerField()
     size = models.CharField(max_length=255)
-
+    trackingno = models.CharField(max_length=255, null = True)
+    trackinglink = models.CharField(max_length=255,null = True)
+    
     def __str__(self):
         return '{} - {}'.format(self.order.id, self.order.trackingno)
     
 
 class TrackingDetails(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
     order = models.ForeignKey(Order, on_delete = models.CASCADE)
     trackingno = models.CharField(max_length=255, null = True)
     trackinglink = models.CharField(max_length=255,null = True)

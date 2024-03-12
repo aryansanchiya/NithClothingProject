@@ -55,7 +55,7 @@ $(document).ready(function(response){
                                 'csrfmiddlewaretoken': token,
                             } ,
                             success: function (responseb) {
-                                    window.location.href = '/home'
+                                    window.location.href = '/'
                                 } 
                             });
                         },

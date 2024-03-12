@@ -22,7 +22,7 @@
          <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <!-- <div class="dashboard-header">
+        <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="../index.html">NITH CLOTHING</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                 <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
 
             </nav>
-        </div> -->
+        </div>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -41,7 +41,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Nith Clothing</a>
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -83,19 +83,19 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2 style="margin: 0px 0px 0px 0px;">Add New Drop</h2>
+                                <h2 style="margin: 0px 0px 0px 0px;">Add New Product</h2>
                             </div>
                             <div class="card-body">
                                 <form action="" method="POST" enctype="multipart/form-data" >
                                     {% csrf_token %}
                                     {% load widget_tweaks %}
                                     <div class="form-group">
-                                        <label for="name">Drop Name:</label>
-                                        {% render_field drop_form.DropName class="form-control" name="name" %}
+                                        <label for="message">Tracking No:</label>
+                                        <input type="text" name="trackingno" placeholder="Tracking No" >
                                     </div>
                                     <div class="form-group">
-                                        <label for="num">Drop Number:</label>
-                                        {% render_field drop_form.DropNum class="form-control" name="num" %}
+                                        <label for="trackinglink">Tracking link:</label>
+                                        <input type="text" name="trackinglink" placeholder="Tracking Link" >
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" name="Submit" value="Insert" class="btn-primary-link form-control look-btn" >

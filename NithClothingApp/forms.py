@@ -34,4 +34,4 @@ class UserRegisterForm(forms.ModelForm):
 class AdminTrackingDetails(forms.ModelForm):
     class Meta:
         model = TrackingDetails
-        fields = ('order','trackingno','trackinglink')
+        fields = ('user','order','trackingno','trackinglink')

@@ -89,3 +89,7 @@
       transform: translateX(-100%);
     }
   }
+  .header-section .container-fluid .inner-header .new-logo{
+    width: 10px;
+    height: 500px;
+  }

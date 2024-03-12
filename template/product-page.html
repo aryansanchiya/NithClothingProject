@@ -42,7 +42,7 @@
                 </div>
                 <div class="header-right">
                     <!-- <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger"> -->
-                    <img src="{% static 'theme/img/icons/man.png' %}" alt="">
+                    <a href="/myorders"><img src="{% static 'theme/img/icons/man.png' %}" alt=""></a>
                     <a href="/cart">
                         <img src="{% static 'theme/img/icons/bag.png' %}" alt="">
                         <!-- <span>2</span> -->
@@ -60,9 +60,9 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./product-page.html">About</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/aboutus">About</a></li>
+                        <li><a href="/contactus">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -94,9 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="page-breadcrumb">
-                        <h2>{{ pro_id.Catgories }}<span></span></h2>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -119,6 +117,7 @@
                             </figure>
                         </div>
                         <div class="product-img">
+                            <br>
                             <figure>
                                 <img src="/{{ pro_id.Image1 }}" alt="">
                             </figure>

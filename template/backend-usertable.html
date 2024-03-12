@@ -22,7 +22,7 @@
          <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <!-- <div class="dashboard-header">
+        <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
                 <a class="navbar-brand" href="../index.html">NITH CLOTHING</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                 <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
 
             </nav>
-        </div> -->
+        </div>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -41,7 +41,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Nith Clothing</a>
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -65,7 +65,6 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="admindrop"  data-target="#submenu-1" aria-controls="submenu-1">Drop<span class="badge badge-success">6</span></a> 
                             </li>
-
                         </ul>
                     </div>
                 </nav>
@@ -79,54 +78,73 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h1 class="pageheader-title">Product Management</h1>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h2 style="margin: 0px 0px 0px 0px;">Add New Drop</h2>
-                            </div>
+                            <h3 class="card-header">Sale Products</h3>
                             <div class="card-body">
-                                <form action="" method="POST" enctype="multipart/form-data" >
-                                    {% csrf_token %}
-                                    {% load widget_tweaks %}
-                                    <div class="form-group">
-                                        <label for="name">Drop Name:</label>
-                                        {% render_field drop_form.DropName class="form-control" name="name" %}
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="num">Drop Number:</label>
-                                        {% render_field drop_form.DropNum class="form-control" name="num" %}
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" name="Submit" value="Insert" class="btn-primary-link form-control look-btn" >
-                                    </div>
-                                </form>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered first">
+                                        <thead>
+                                            <tr>
+                                                <td>User ID</td>
+                                                <td>Name</td>
+                                                <td>Mobile NO</td>
+                                                <td>EmailID</td>
+                                                <td>Created At</td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for row in table %}
+                                                <td>{{ row.id}}</td>
+                                                <td>{{ row.FullName}}</td>
+                                                <td>{{ row.MobileNo}}</td>
+                                                <td>{{ row.Emailid}}</td>
+                                                <td>{{ row.created_at}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
+                
+                 <div class="footer mt-5">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                Copyright © 2018 Concept. All rights reserved. Dashboard by
+                                <a href="https://colorlib.com/wp/">Colorlib</a>.
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="text-md-right footer-links d-none d-sm-block">
+                                    <a href="{% static 'admin/javascript: void(0);' %}">About</a>
+                                    <a href="{% static 'admin/javascript: void(0);' %}">Support</a>
+                                    <a href="{% static 'admin/javascript: void(0);' %}">Contact Us</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end footer -->
+            <!-- end main wrapper -->
             <!-- ============================================================== -->
         </div>
     </div>

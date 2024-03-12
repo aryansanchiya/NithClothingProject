@@ -89,74 +89,19 @@
                                 <form action="" method="POST" enctype="multipart/form-data" >
                                     {% csrf_token %}    
                                     <div class="form-group">
-                                        <label for="userid">User id:</label>
-                                        <input type="text" name="userid" value="{{ orders.user }}">
+                                        <label for="orderid">Order Id:</label>
+                                        <input type="number" name = "orederid">
                                     </div>
                                     <div class="form-group">
-                                        <label for="fname">First Name:</label>
-                                        <input type="text" name="fname" value=" {{ details.fname }}">
+                                        <label for="tno">Tracking No:</label>
+                                        <input type="text" name = "tno">
                                     </div>
                                     <div class="form-group">
-                                        <label for="fname">Last Name:</label>
-                                        <input type="text" name="lname" value=" {{ details.lname }}">
+                                        <label for="tno">Tracking Link:</label>
+                                        <input type="text" name = "tlink">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address">Address:</label>
-                                        <input type="text" name="address" value=" {{ details.address }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="city">City:</label>
-                                        <input type="text" name="city" value=" {{ details.city }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="state">State:</label>
-                                        <input type="text" name="state" value=" {{ details.state }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="country">Country:</label>
-                                        <input type="text" name="country" value=" {{ details.country }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="zipcode">Zipcode:</label>
-                                        <input type="text" name="zipcode" value=" {{ details.zipcode }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Phone:</label>
-                                        <input type="text" name="phone" value=" {{ details.phone }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="totalprice">Price:</label>
-                                        <input type="number" name="totalprice" value=" {{ details.totalprice }}" step="0.01">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="payment_id">Payment id:</label>
-                                        <input type="text" name="payment_id" value=" {{ details.payment_id }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="status">Status:</label>
-                                        <input type="text" name="status" value=" {{ details.status }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Message:</label>
-                                        <input type="text" name="message" value=" {{ details.message }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Tracking No:</label>
-                                        <input type="text" name="trackingno" placeholder="Tracking No" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="trackinglink">Tracking link:</label>
-                                        <input type="text" name="trackinglink" placeholder="Tracking Link" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="created_at">Created at:</label>
-                                        <input type="datetime" name="created_at" value=" {{ details.created_at }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="updated_at">Updated at:</label>
-                                        <input type="datetime" name="updated_at" value=" {{ details.updated_at }}">
-                                    </div>
-                                    <div class="form-group">
+                                        {{ message }}
                                         <input type="submit" name="Submit" value="Apply Changes" class="btn-primary-link form-control look-btn" >
                                     </div>
                                     
