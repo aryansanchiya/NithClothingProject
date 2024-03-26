@@ -19,7 +19,6 @@ clarifai-grpc==10.0.10
 click==8.0.3
 colorama==0.4.4
 command-not-found==0.3
-configparser==6.0.0
 cupshelpers==1.0
 dataclasses-json==0.6.4
 dbus-python==1.2.18
