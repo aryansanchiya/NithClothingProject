@@ -30,7 +30,6 @@ distro==1.7.0
 Django==3.2.12
 django-widget-tweaks==1.5.0
 djangorestframework==3.14.0
-duplicity==0.8.21
 EasyProcess==1.1
 emoji==2.10.1
 exceptiongroup==1.2.0
