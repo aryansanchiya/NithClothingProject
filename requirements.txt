@@ -27,7 +27,6 @@ Deprecated==1.2.14
 dirtyjson==1.0.8
 distlib==0.3.8
 distro==1.7.0
-distro-info==1.1+ubuntu0.1
 Django==3.2.12
 django-widget-tweaks==1.5.0
 djangorestframework==3.14.0
