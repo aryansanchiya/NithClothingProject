@@ -52,7 +52,6 @@ jeepney==0.7.1
 joblib==1.3.2
 jsonschema==2.6.0
 keyring==23.5.0
-language-selector==0.1
 launchpadlib==1.10.16
 lazr.restfulclient==0.14.4
 lazr.uri==1.0.6
