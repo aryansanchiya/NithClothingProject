@@ -1,4 +1,4 @@
-from .models import Products,Admin_Details,Admin_Drop_Link,User, Order, TrackingDetails
+from .models import Products,Admin_Details,Admin_Drop_Link,User, Order
 # from attr import attrs,fields
 from django import forms
 
@@ -30,8 +30,3 @@ class UserRegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('FullName','MobileNo','Emailid','Password','ConfirmPassword')
-
-class AdminTrackingDetails(forms.ModelForm):
-    class Meta:
-        model = TrackingDetails
-        fields = ('user','order','trackingno','trackinglink')

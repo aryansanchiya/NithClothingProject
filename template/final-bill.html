@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Square</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin-top: 30px;
+        /* padding-bottom: -20px; */
+    }
+    .square {
+        width: 90%; /* You can adjust the width of the square */
+        height: 100%;
+        background-color: whitesmoke; /* You can adjust the background color */
+        border: 2px solid black; /* Adding a black border */
+        margin-bottom: 50px;
+    }
+    .reciever{
+        margin-left: 70%;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="square">
+        <!-- {% for row in single_bill %} -->
+        <div class="card-body reciever">
+            <h5>To:{{ fname }}</h5>
+        </div>
+        <!-- {% endfor %} -->
+    </div>
+</div>
+</body>
+</html>

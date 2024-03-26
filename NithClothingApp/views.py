@@ -1,9 +1,9 @@
 from django.shortcuts import render
 import mysql.connector
 from django.db import connection
-from .models import Products,Admin_Details,Admin_Drop_Link,User,Cart, Order, OrderItem, TrackingDetails
+from .models import Products,Admin_Details,Admin_Drop_Link,User,Cart, Order, OrderItem,Billing
 from django.shortcuts import get_object_or_404, redirect, render
-from .forms import ProductForm, RegisterForm, DropForm, UserRegisterForm,AdminTrackingDetails
+from .forms import ProductForm, RegisterForm, DropForm, UserRegisterForm
 from argon2.exceptions import VerifyMismatchError
 import datetime
 from django.contrib.auth.hashers import make_password, check_password
@@ -42,9 +42,13 @@ def home(request):
         name =request.session['name']
     except KeyError:
         table = Products.objects.all()
-        return render(request,"index.html",{'table':table})
+        orders = Order.objects.count()
+        dropdate = Admin_Drop_Link.objects.all()
+        return render(request,"index.html",{'table':table,'orders':orders, 'dropdate':dropdate})
+    dropdate = Admin_Drop_Link.objects.all()
+    orders = Order.objects.count()
     table = Products.objects.all()
-    return render(request,"index.html",{'table':table,'name':name})
+    return render(request,"index.html",{'table':table,'name':name,'orders':orders,'dropdate':dropdate})
 
 def product(request,productid):
     if not 'userid' in request.session:
@@ -293,6 +297,8 @@ def logout_page(request):
 
     return render(request,'user-logout.html')
 
+def aboutus(request):
+    return render(request,"aboutus.html")
 
 
 #Backend Functions
@@ -492,3 +498,34 @@ def updatetrackingdetails(request):
             order.save()
             return redirect(adminhome)
     return render(request,'update-tracking-details.html')
+
+# def billingform(request):
+#     if request.method == 'POST':
+#         order_id = request.POST['orderid']
+#         single_bill = Billing()
+#         single_bill.fname = Order.objects.filter(id=order_id).get().fname
+#         single_bill.lname = Order.objects.filter(id=order_id).get().lname
+#         single_bill.address = Order.objects.filter(id=order_id).get().address
+#         single_bill.city = Order.objects.filter(id=order_id).get().city
+#         single_bill.state = Order.objects.filter(id=order_id).get().state
+#         single_bill.country = Order.objects.filter(id=order_id).get().country
+#         single_bill.zipcode = Order.objects.filter(id=order_id).get().zipcode
+#         single_bill.phone = Order.objects.filter(id=order_id).get().phone
+#         single_bill.save()
+        
+#         return render("final-bill.html",{'fname':single_bill.fname})
+#     return render(request,'billing-form.html')
+
+# def bills(request):
+#     billdetail = Billing.objects.all()
+#     return render(request,'bills.html',{'billdetail':billdetail})
+
+def finalbill(request):
+    
+    return render(request,'final-bill.html')
+
+# def printdata(request,billid):
+#     single_bill = Billing.objects.first()
+#     print(single_bill)
+#     return render(request,'final-bill.html',{'single_bill':single_bill})
+

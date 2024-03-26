@@ -21,6 +21,7 @@ urlpatterns = [
     path('change_password',views.change_password,name='change_password'),
     path('userlogout',views.userlogout,name="userlogout"),
     path('logout_page',views.logout_page,name='user_logout'),
+    path('aboutus',views.aboutus,name='aboutus'),
 
     #Backend
     path('adminhome',views.adminhome,name='adminhome'),
@@ -41,4 +42,8 @@ urlpatterns = [
     path('orderitems',views.orderitems,name='orderitems'),
     # path('edit-order-items/<int:orderitemid>',views.updateorderitems,name='edit-order-items'),
     path('usertable',views.usertable, name='usertable'),
+    # path('finalbill',views.finalbill,name='finalbill'),
+    # path('billingform',views.billingform,name='billingform'),
+#     path('bills',views.bills,name='bills'),
+#     path('printdata/<int:billid>',views.printdata,name='printdata'),
 ]

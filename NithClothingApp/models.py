@@ -81,6 +81,7 @@ class Admin_Drop_Link(models.Model):
     DropName = models.CharField(max_length=255)
     DropNum = models.IntegerField(default=0)
     DateTime = models.DateField(default=datetime.date.today())
+    DropDate = models.CharField(max_length=255)
 
 class User(models.Model):
     FullName = models.CharField(max_length=255)
@@ -139,15 +140,16 @@ class OrderItem(models.Model):
     price = models.FloatField()
     quantity = models.IntegerField()
     size = models.CharField(max_length=255)
-    trackingno = models.CharField(max_length=255, null = True)
-    trackinglink = models.CharField(max_length=255,null = True)
     
     def __str__(self):
         return '{} - {}'.format(self.order.id, self.order.trackingno)
     
-
-class TrackingDetails(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
-    order = models.ForeignKey(Order, on_delete = models.CASCADE)
-    trackingno = models.CharField(max_length=255, null = True)
-    trackinglink = models.CharField(max_length=255,null = True)
+class Billing(models.Model):
+    fname = models.CharField(max_length = 255)
+    lname = models.CharField(max_length = 255) 
+    address = models.TextField()
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    country = models.CharField(max_length = 255)
+    zipcode = models.CharField(max_length = 255)
+    phone = models.CharField(max_length = 255)

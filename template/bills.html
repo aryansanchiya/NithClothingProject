@@ -22,26 +22,10 @@
          <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-        <!-- <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="../index.html">NITH CLOTHING</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
-
-            </nav>
-        </div> -->
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Product Management</a>
+                    <a class="d-xl-none d-lg-none" href="#">Products</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -49,8 +33,8 @@
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">
                                 Menu
-                              </li>
-                              <li class="nav-item ">
+                            </li>
+                            <li class="nav-item ">
                                 <a class="nav-link active" href="adminhome"  data-target="#submenu-1" aria-controls="submenu-1">Dashboard <span class="badge badge-success">6</span></a> 
                             </li>
                             <li class="nav-item ">
@@ -76,93 +60,58 @@
                 </nav>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
+        <br>
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 <!-- ============================================================== -->
                 <!-- pageheader -->
                 <!-- ============================================================== -->
+                <br>
+                <br>
+                <br>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h1 class="pageheader-title">Product Management</h1>
+                            <h1 class="pageheader-title">Bill Management</h1>
+                            <a class="breadcrumb-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
-                        <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h3 class="card-header">Quantity List in order to size</h3>
+                            <h3 class="card-header">Bills</h3>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered first">
                                         <thead>
                                             <tr>
-                                                <td>Product</td>
-                                                <td>Free Size</td>
-                                                <td>22</td>
-                                                <td>23</td>
-                                                <td>24</td>
-                                                <td>25</td>
-                                                <td>26</td>
-                                                <td>27</td>
-                                                <td>28</td>
-                                                <td>29</td>
-                                                <td>30</td>
-                                                <td>31</td>
-                                                <td>32</td>
-                                                <td>33</td>
-                                                <td>34</td>
-                                                <td>35</td>
-                                                <td>36</td>
-                                                <td>37</td>
-                                                <td>38</td>
-                                                <td>39</td>
-                                                <td>40</td>
-                                                <td>41</td>
-                                                <td>42</td>
-
-                                                <td>Operations</td>
+                                                <td>fname</td>
+                                                <td>lname</td>
+                                                <td>address</td>
+                                                <td>city</td>
+                                                <td>state</td>
+                                                <td>country</td>
+                                                <td>zipcode</td>
+                                                <td>phone</td>
+                                                <td width="10%">Operations</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for row in table %}
+                                            {% for row in billdetail %}
                                             <tr> 
-                                                <div>
-                                                    
-                                                </div>
-                                                <td><img src="{{ row.Image1 }}"  height="250" width="260"> </td>
-                                                <td>{{ row.FreeSize }}</td>
-                                                <td>{{ row.Size22 }}</td>
-                                                <td>{{ row.Size23 }}</td>
-                                                <td>{{ row.Size24 }}</td>
-                                                <td>{{ row.Size25 }}</td>
-                                                <td>{{ row.Size26 }}</td>
-                                                <td>{{ row.Size27 }}</td>
-                                                <td>{{ row.Size28 }}</td>
-                                                <td>{{ row.Size29 }}</td>
-                                                <td>{{ row.Size30 }}</td>
-                                                <td>{{ row.Size31 }}</td>
-                                                <td>{{ row.Size32 }}</td>
-                                                <td>{{ row.Size33 }}</td>
-                                                <td>{{ row.Size34 }}</td>
-                                                <td>{{ row.Size35 }}</td>
-                                                <td>{{ row.Size36 }}</td>
-                                                <td>{{ row.Size37 }}</td>
-                                                <td>{{ row.Size38 }}</td>
-                                                <td>{{ row.Size39 }}</td>
-                                                <td>{{ row.Size40 }}</td>
-                                                <td>{{ row.Size41 }}</td>
-                                                <td>{{ row.Size42 }}</td>
-
+                                                <td>{{row.fname}}</td>
+                                                <td>{{row.lname}}</td>
+                                                <td>{{row.address}}</td>
+                                                <td>{{row.city}}</td>
+                                                <td>{{row.state}}</td>
+                                                <td>{{row.country}}</td>
+                                                <td>{{row.zipcode}}</td>
+                                                <td>{{row.phone}}</td>
                                                 <td>
-                                                    <a href="editproduct/{{ row.id }}"><i class="fa fa-edit"></i></a> <a href="deleteproduct/{{ row.id }}"><i class="fa fa-trash"></i></a>
+                                                
+                                                <a href="printdata/{{ row.id }}"><i class="fa fa-edit"></i></a> 
                                                 </td>
                                             </tr>
                                             {% endfor %}

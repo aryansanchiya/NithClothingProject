@@ -139,7 +139,8 @@
                                                         <th class="border-0">Customer</th>
                                                         <th class="border-0">Tracking No</th>
                                                         <th class="border-0">Tracking Link</th>
-                                                        <!-- <th class="border-0">Update</th> -->
+                                                        <th class="border-0">Update</th>
+                                                        <th class="border-0">Bill</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -159,6 +160,7 @@
                                                         <td>{{ row.order.trackingno }}</td>
                                                         <td>{{ row.order.trackinglink }}</td>
                                                         <td><a href="updatetrackingdetails"><i class="fa fa-edit"></i></a></td>
+                                                        <td><a href="billingform"><i class="fa fa-edit"></i></a></td>
                                                     </tr>
                                     
                                                     {% endfor %}

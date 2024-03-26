@@ -101,7 +101,9 @@
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
                         <img src="{% static 'theme/img/icons/voucher.png' %}" alt="">
-                        <p>New Drop will arrive on date 11-11-24</p>
+                        {% for row in dropdate %}
+                        <p>New Drop will arrive on date {{ row.DropName }}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-xl-right">
@@ -127,7 +129,9 @@
               <div><div>Shopping!</div></div>
             </div>
             <!-- AweSoMe! -->
+            
         </div>
+        <span style="font-family:'Courier New', Courier, monospace;"><b>Happy Customers : {{ orders }}</b></span>
     </div>
     <!-- Latest Product Begin -->
     <section class="latest-products spad">
@@ -146,7 +150,7 @@
                 <div class="col-lg-3 col-sm-6 mix all dresses bags">
                     <div class="single-product-item">
                         <figure>
-                            <a href="product/{{ row.id }}"><img src="{{ row.Image1 }}" alt=""></a>
+                            <a href="product/{{ row.id }}"><img style="aspect-ratio: 3/3;" src="{{ row.Image1 }}" alt=""></a>
                           {% if row.TypeOfStock == 'Special' or row.TypeOfStock == 'Sale' %}  <div class="p-status">{{row.TypeOfStock}}</div> {% endif %}
                         </figure>
                         <div class="product-text">

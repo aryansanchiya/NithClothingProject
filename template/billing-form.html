@@ -41,7 +41,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Product Management</a>
+                    <a class="d-xl-none d-lg-none" href="#">Bill Management</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -71,6 +71,7 @@
                             <li class="nav-item ">
                                 <a class="nav-link active" href="orderitems"  data-target="#submenu-1" aria-controls="submenu-1">Order Items<span class="badge badge-success">6</span></a> 
                             </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -84,119 +85,50 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h1 class="pageheader-title">Product Management</h1>
-                        </div>
-                        <a class="dropdown-item" href="/logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h3 class="card-header">Quantity List in order to size</h3>
+                            <div class="card-header">
+                                <h2 style="margin: 0px 0px 0px 0px;">Bill Id</h2>
+                            </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered first">
-                                        <thead>
-                                            <tr>
-                                                <td>Product</td>
-                                                <td>Free Size</td>
-                                                <td>22</td>
-                                                <td>23</td>
-                                                <td>24</td>
-                                                <td>25</td>
-                                                <td>26</td>
-                                                <td>27</td>
-                                                <td>28</td>
-                                                <td>29</td>
-                                                <td>30</td>
-                                                <td>31</td>
-                                                <td>32</td>
-                                                <td>33</td>
-                                                <td>34</td>
-                                                <td>35</td>
-                                                <td>36</td>
-                                                <td>37</td>
-                                                <td>38</td>
-                                                <td>39</td>
-                                                <td>40</td>
-                                                <td>41</td>
-                                                <td>42</td>
-
-                                                <td>Operations</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for row in table %}
-                                            <tr> 
-                                                <div>
-                                                    
-                                                </div>
-                                                <td><img src="{{ row.Image1 }}"  height="250" width="260"> </td>
-                                                <td>{{ row.FreeSize }}</td>
-                                                <td>{{ row.Size22 }}</td>
-                                                <td>{{ row.Size23 }}</td>
-                                                <td>{{ row.Size24 }}</td>
-                                                <td>{{ row.Size25 }}</td>
-                                                <td>{{ row.Size26 }}</td>
-                                                <td>{{ row.Size27 }}</td>
-                                                <td>{{ row.Size28 }}</td>
-                                                <td>{{ row.Size29 }}</td>
-                                                <td>{{ row.Size30 }}</td>
-                                                <td>{{ row.Size31 }}</td>
-                                                <td>{{ row.Size32 }}</td>
-                                                <td>{{ row.Size33 }}</td>
-                                                <td>{{ row.Size34 }}</td>
-                                                <td>{{ row.Size35 }}</td>
-                                                <td>{{ row.Size36 }}</td>
-                                                <td>{{ row.Size37 }}</td>
-                                                <td>{{ row.Size38 }}</td>
-                                                <td>{{ row.Size39 }}</td>
-                                                <td>{{ row.Size40 }}</td>
-                                                <td>{{ row.Size41 }}</td>
-                                                <td>{{ row.Size42 }}</td>
-
-                                                <td>
-                                                    <a href="editproduct/{{ row.id }}"><i class="fa fa-edit"></i></a> <a href="deleteproduct/{{ row.id }}"><i class="fa fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form action="" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    {% load widget_tweaks %}
+                                    <div class="form-group">
+                                        <label for="orderid">Enter Order Id:</label>
+                                        <input type="number" name="orderid">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn-block" type="submit">Generate Bill</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                 <!-- <div class="footer mt-5">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by
-                                <a href="https://colorlib.com/wp/">Colorlib</a>.
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="{% static 'admin/javascript: void(0);' %}">About</a>
-                                    <a href="{% static 'admin/javascript: void(0);' %}">Support</a>
-                                    <a href="{% static 'admin/javascript: void(0);' %}">Contact Us</a>
-                                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
-            </div>
+                </div>
+            </div> -->
             <!-- ============================================================== -->
-            <!-- end main wrapper -->
+            <!-- end footer -->
             <!-- ============================================================== -->
         </div>
     </div>
