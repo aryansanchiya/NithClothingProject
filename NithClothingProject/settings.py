@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^)6dv)%00%yf)t1@a9%s=%oebh79#n7#9acrb3_=wk3fg^bx+g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["13.60.56.64"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -135,6 +135,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# settings.py
+
+# Define your STATIC_ROOT setting
+STATIC_ROOT = '/home/ubuntu/NithClothingProject/static/'
+
 
 MEDIA_ROOT = '/media/'
 MEDIA_ROOT = (
