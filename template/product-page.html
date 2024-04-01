@@ -40,6 +40,7 @@
                 <div class="logo col-lg-2 col-md-4 col-sm-12">
                     <a href="./index.html"><img src="{% static 'theme/img/nithclothing3.png' %}" alt=""></a>
                 </div>
+                {% if name %}
                 <div class="header-right">
                     <!-- <img src="{% static 'theme/img/icons/search.png' %}" alt="" class="search-trigger"> -->
                     <a href="/myorders"><img src="{% static 'theme/img/icons/man.png' %}" alt=""></a>
@@ -48,14 +49,15 @@
                         <!-- <span>2</span> -->
                     </a>
                 </div>
+                {% endif %}
                 <div class="user-access">
                     {% if name %}
                      <a href>{{ name }}</a>
                      <a href="/userlogout" class="in">Logout</a>
                     {% endif %}
                     {% if not name %}
-                    <a href="register">Register</a>
-                    <a href="login" class="in">Log in</a>
+                    <a href="/register">Register</a>
+                    <a href="/login" class="in">Log in</a>
                     {% endif %}
                 </div>
                 <nav class="main-menu mobile-menu">
@@ -182,7 +184,7 @@
                                     {% if pro_id.Size41 > 0 %}<option value="Size41" >41</option>{% endif %}
                                     {% if pro_id.Size42 > 0 %}<option value="Size42" >42</option>{% endif %}
                                 </select>
-                               
+                        {% if name %}    
                         <div class="product-quantity">
                             <div class="pro-qty">
                                 <input type="text" class="prod_qty" value="1">
@@ -190,6 +192,11 @@
                             {{ msg1 }}
                         </div>
                         <a href="/addtocart" class="primary-btn pc-btn addToCartBtn">Add to cart</a>
+                        {% else %}
+                        <br>
+                        <br>
+                        <i><span>*for add to cart, login yourself.</span></i>
+                        {% endif %}
                         <!-- <ul class="p-info">
                             <li>Product Information</li>
                             <li>Reviews</li>

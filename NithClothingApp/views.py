@@ -52,13 +52,13 @@ def home(request):
 
 def product(request,productid):
     dropdate = Admin_Drop_Link.objects.all()
-    if not 'userid' in request.session:
-        return redirect('login')
+    # if not 'userid' in request.session:
+    #     return redirect('login')
     try: 
         name =request.session['name']
     except KeyError:
         pro_id = Products.objects.get(id=productid)
-        return render(request,"index.html",{'pro_id':pro_id})
+        return render(request,"product-page.html",{'pro_id':pro_id,'dropdate':dropdate})
     pro_id = Products.objects.get(id=productid)
     return render(request, "product-page.html",{'pro_id':pro_id,'name':name,'dropdate':dropdate})
 
@@ -314,14 +314,19 @@ def aboutus(request):
 #Backend Functions
 
 def adminregister(request):
+    msg = "You cannot register on this page!"
     form = RegisterForm
     if request.method == "POST":
         # print("HII")
         form = RegisterForm(request.POST or None)
+        adminname = request.POST.get('AdminName')
         if form.is_valid():
+            if adminname == "shivani" or adminname == "Shivani" or adminname == "SHIVANI" or adminname == "shivanivegad" or adminname == "ShivaniVegad" or adminname == "Shivanivegad" or adminname == "shivaniVegad":
+                return render(request,"backend-signup.html",{'msg':msg})
+            else:
             # print("hii")
-            form.save()
-            return redirect("adminlogin")
+                form.save()
+                return redirect("adminlogin")
     return render(request,'backend-signup.html',{'form':form})
 
 def adminlogin(request):
