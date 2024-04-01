@@ -77,7 +77,9 @@
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
                         <img src="{% static 'theme/img/icons/voucher.png' %}" alt="">
-                        <p>New Drop will arrive on date 11-11-24</p>
+                        {% for row in dropdate %}
+                        <p>New Drop on {{ row.DropName }}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-xl-right">
@@ -123,17 +125,17 @@
                         </div>
                         <div class="product-img">
                             <figure>
-                                <img src="/{{ pro_id.Image1 }}" alt="">
+                                <img src="/{{ pro_id.Image2 }}" alt="">
                             </figure>
                         </div>
                         <div class="product-img">
                             <figure>
-                                <img src="/{{ pro_id.Image1 }}" alt="">
+                                <img src="/{{ pro_id.Image3 }}" alt="">
                             </figure>
                         </div>
                         <div class="product-img">
                             <figure>
-                                <img src="/{{ pro_id.Image1 }}" alt="">
+                                <img src="/{{ pro_id.Image4 }}" alt="">
                             </figure>
                         </div>
                     </div>

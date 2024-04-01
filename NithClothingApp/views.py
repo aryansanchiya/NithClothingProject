@@ -51,6 +51,7 @@ def home(request):
     return render(request,"index.html",{'table':table,'name':name,'orders':orders,'dropdate':dropdate})
 
 def product(request,productid):
+    dropdate = Admin_Drop_Link.objects.all()
     if not 'userid' in request.session:
         return redirect('login')
     try: 
@@ -59,7 +60,7 @@ def product(request,productid):
         pro_id = Products.objects.get(id=productid)
         return render(request,"index.html",{'pro_id':pro_id})
     pro_id = Products.objects.get(id=productid)
-    return render(request, "product-page.html",{'pro_id':pro_id,'name':name})
+    return render(request, "product-page.html",{'pro_id':pro_id,'name':name,'dropdate':dropdate})
 
 def categories(request):
     if not 'userid' in request.session:
@@ -171,11 +172,12 @@ def razorpaycheck(request):
     })
 
 def cart(request):
+    dropdate = Admin_Drop_Link.objects.all()
     if not 'userid' in request.session:
         return redirect('login')
     name = request.session['name']
     cart = Cart.objects.filter(user_id = request.session['userid'])
-    return render(request, 'shopping-cart.html',{'cart':cart , 'name': name})
+    return render(request, 'shopping-cart.html',{'cart':cart , 'name': name, 'dropdate':dropdate})
 
 def dlt_cart_item(request):
         if not 'userid' in request.session:
@@ -228,6 +230,7 @@ def register(request):
     return render(request, 'user-register.html',{'form':form})
 
 def login(request):
+    dropdate = Admin_Drop_Link.objects.all()
     if request.method == "POST":
         email = request.POST["email"]
         user_given_password = request.POST['password']
@@ -243,15 +246,16 @@ def login(request):
             request.session['name'] = fullname
             return redirect("home")
         else:
-            return render(request,"login.html")
-    return render(request,"login.html")
+            return render(request,"login.html",{'dopdate':dropdate})
+    return render(request,"login.html",{'dropdate':dropdate})
 
 def forgot_password(request):
+    dropdate = Admin_Drop_Link.objects.all()
     if request.method == 'POST':
         txtemail = request.POST['email']
         count = User.objects.filter(Emailid=txtemail).count()
         if count == 0:
-            return render(request,"forgot_password.html",{'message':"Email is not registerd with us!"})
+            return render(request,"forgot_password.html",{'message':"Email is not registerd with us!",'dropdate':dropdate})
         else:
             new_password = generate_random_password(7)
 
@@ -264,7 +268,7 @@ def forgot_password(request):
             recipient_list = [txtemail]
             send_text_email(subject,message,recipient_list)
             return redirect("change_password")
-    return render(request,"forgot_password.html")
+    return render(request,"forgot_password.html",{'dropdate':dropdate})
         
 def change_password(request):
     if request.method == "POST":
@@ -294,12 +298,18 @@ def userlogout(request):
 def logout_page(request):
     if not 'userid' in request.session:
         return redirect('login')
+    dropdate = Admin_Drop_Link.objects.all()
 
-    return render(request,'user-logout.html')
+    return render(request,'user-logout.html',{'dropdate':dropdate})
 
 def aboutus(request):
-    return render(request,"aboutus.html")
-
+    dropdate = Admin_Drop_Link.objects.all()
+    # user_id = request.session['userid']
+    # if request.session['name']:
+    #     name = request.session['name']
+    #     return render(request,"aboutus.html",{'dropdate':dropdate, 'name':name})
+    # else:
+    return render(request,"aboutus.html",{'dropdate':dropdate})
 
 #Backend Functions
 

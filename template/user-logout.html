@@ -70,7 +70,9 @@
                 <div class="col-md-4 text-left text-lg-center">
                     <div class="header-item">
                         <img src="{% static 'theme/img/icons/voucher.png' %}" alt="">
-                        <p>New Drop will arrive on date 11-11-24</p>
+                        {% for row in dropdate %}
+                        <p>New Drop on {{ row.DropName }}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 </div>
