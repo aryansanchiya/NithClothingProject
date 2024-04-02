@@ -27,11 +27,25 @@
     <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'theme/css/style2.css' %}" type="text/css">
     <style>
-        @media (max-width: 768px) {
-            .product {
+        @media screen and (max-width: 767px) {
+            .product-container{
                 width: 100%; /* Display 1 item per row on smaller screens */
             }
+        }
+        @media screen and (max-width: 767px) {
+        .small-logo img {
+            width: 100px; /* Adjust the width to your desired size */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .logo {
+            text-align: center; /* Center the logo */
+        }
+
+        .mobile-logo {
+            max-width: 100%; /* Make sure the logo doesn't exceed its container */
+        }
     }
+
     </style>
 </head>
 
@@ -56,7 +70,7 @@
     <header class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
-                <div class="logo col-lg-2 col-md-4 col-sm-12" >
+                <div class="logo col-lg-2 col-md-4 col-sm-12 small-logo" >
                     <img src="{% static 'theme/img/nithclothing3.png' %}" alt="">
                 </div>
                 {% if name %}
@@ -150,7 +164,7 @@
                 <div class="product" style="width: 50%; padding: 10px; box-sizing: border-box;">
                     <div class="single-product-item" style="width: 100%; height: auto;">
                         <figure>
-                            <a href="product/{{ row.id }}"><img style="aspect-ratio: 3/3;" src="{{ row.Image1 }}" alt=""></a>
+                            <a href="product/{{ row.id }}"><img src="{{ row.Image1 }}" alt=""></a>
                             {% if row.TypeOfStock == 'Special' or row.TypeOfStock == 'Sale' %}
                             <div class="p-status">{{row.TypeOfStock}}</div>
                             {% endif %}

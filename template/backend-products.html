@@ -93,11 +93,11 @@
                                                 <td>B/W</td>
                                                 <td>Condition</td>
                                                 <td width="10%">Operations</td>
-                                            </tr>
+                                            </tr>   
                                         </thead>
                                         <tbody>
-                                            {% for row in table %}
-                                            {% if row.TypeOfStock == "General" %}  <tr> 
+                                                {% for row in table %}
+                                         <tr> 
                                                 {% if row.TypeOfStock == "General" %} <td><img src="{{ row.Image1 }}"  height="200" width="210"> </td>{% endif %}
                                                 {% if row.TypeOfStock == "General" %}<td>{{ row.Catgories }}</td> {% endif %}
                                                 {% if row.TypeOfStock == "General" %} <td>{{ row.Price }}</td> {% endif %}
@@ -107,7 +107,7 @@
                                                 <td>
                                                     {% if row.TypeOfStock == "General" %}   <a href="editproduct/{{ row.id }}"><i class="fa fa-edit"></i></a> <a href="deleteproduct/{{ row.id }}"><i class="fa fa-trash"></i></a>{% endif %}
                                                 </td>
-                                            </tr>{% endif  %}
+                                            </tr>
                                             {% endfor %}
                                         </tbody>
                                     </table>

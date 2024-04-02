@@ -24,6 +24,26 @@
     <link rel="stylesheet" href="{% static 'theme/css/magnific-popup.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'theme/css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'theme/css/style.css' %}" type="text/css">
+    <style>
+        @media screen and (max-width: 767px) {
+            .product-container{
+                width: 100%; /* Display 1 item per row on smaller screens */
+            }
+        }
+        @media screen and (max-width: 767px) {
+        .small-logo img {
+            width: 100px; /* Adjust the width to your desired size */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .logo {
+            text-align: center; /* Center the logo */
+        }
+
+        .mobile-logo {
+            max-width: 100%; /* Make sure the logo doesn't exceed its container */
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -47,7 +67,7 @@
     <header class="header-section">
         <div class="container-fluid">
             <div class="inner-header">
-                <div class="logo col-lg-2 col-md-4 col-sm-12" >
+                <div class="logo col-lg-2 col-md-4 col-sm-12 small-logo" >
                     <img src="{% static 'theme/img/nithclothing3.png' %}" alt="">
                 </div>
                 <div class="user-access">
