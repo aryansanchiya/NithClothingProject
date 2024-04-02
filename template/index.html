@@ -164,7 +164,7 @@
                 <div class="product" style="width: 50%; padding: 10px; box-sizing: border-box;">
                     <div class="single-product-item" style="width: 100%; height: auto;">
                         <figure>
-                            <a href="product/{{ row.id }}"><img src="{{ row.Image1 }}" alt=""></a>
+                            <a href="product/{{ row.id }}"><img style="aspect-ratio: 3/3;" src="{{ row.Image1 }}" alt=""></a>
                             {% if row.TypeOfStock == 'Special' or row.TypeOfStock == 'Sale' %}
                             <div class="p-status">{{row.TypeOfStock}}</div>
                             {% endif %}
